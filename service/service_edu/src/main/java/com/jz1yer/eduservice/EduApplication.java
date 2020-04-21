@@ -11,3 +11,4 @@ public class EduApplication {
         SpringApplication.run(EduApplication.class);
     }
 }
+
