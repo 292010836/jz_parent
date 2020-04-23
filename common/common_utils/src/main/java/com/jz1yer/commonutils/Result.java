@@ -31,6 +31,15 @@ public class Result {
 
     }
 
+    public Result(Integer code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+
+    public Result(String message) {
+        this.message = message;
+    }
+
     public boolean isSuccess() {
         return success;
     }
