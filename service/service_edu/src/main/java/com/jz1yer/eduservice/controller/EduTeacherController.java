@@ -31,7 +31,8 @@ import java.util.Map;
  */
 @Api(description = "讲师管理")
 @RestController
-@RequestMapping("/eduservice/edu-teacher")
+@RequestMapping("/eduservice/teacher")
+@CrossOrigin
 public class EduTeacherController {
 
     @Autowired
@@ -51,7 +52,6 @@ public class EduTeacherController {
             int u = 1/0;
         }catch (Exception e){
             throw new MyException(20001,"执行自定义异常!");
-
         }
 
         return new Result(ResultCode.SUCCESS, list);
@@ -77,7 +77,7 @@ public class EduTeacherController {
         long total = pageTeacher.getTotal();
         Map hashMap = new HashMap<>();
         hashMap.put("total", total);
-        hashMap.put("row", records);
+        hashMap.put("rows", records);
         return new Result(ResultCode.SUCCESS, hashMap);
     }
 
@@ -105,6 +105,7 @@ public class EduTeacherController {
         if (!StringUtils.isEmpty(end)) {
             queryWrapper.le("gmt_modified", end);
         }
+        queryWrapper.orderByDesc("gmt_create");
         eduTeacherService.page(page, queryWrapper);
         List<EduTeacher> records = page.getRecords();
         long total = page.getTotal();
@@ -116,6 +117,11 @@ public class EduTeacherController {
 
     }
 
+    /**
+     * 添加讲师
+     * @param eduTeacher
+     * @return
+     */
     @PostMapping("addTeacher")
     public Result addTeacher(@RequestBody EduTeacher eduTeacher) {
         boolean save = eduTeacherService.save(eduTeacher);

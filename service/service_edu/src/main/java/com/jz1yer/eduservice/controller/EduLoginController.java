@@ -10,7 +10,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/eduservice/user")
-
+@CrossOrigin
 public class EduLoginController {
 
     @PostMapping("login")
