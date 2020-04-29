@@ -2,7 +2,6 @@ package com.jz1yer.oss.service.impl;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
-
 import com.jz1yer.oss.service.OssService;
 import com.jz1yer.oss.utils.ConstantPropertiesUtils;
 import org.joda.time.DateTime;
@@ -10,8 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
-
-import java.text.SimpleDateFormat;
 import java.util.UUID;
 
 @Service

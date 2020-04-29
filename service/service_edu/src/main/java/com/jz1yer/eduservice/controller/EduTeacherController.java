@@ -106,7 +106,9 @@ public class EduTeacherController {
             queryWrapper.le("gmt_modified", end);
         }
         queryWrapper.orderByDesc("gmt_create");
+
         eduTeacherService.page(page, queryWrapper);
+
         List<EduTeacher> records = page.getRecords();
         long total = page.getTotal();
         Map hashMap = new HashMap<>();
